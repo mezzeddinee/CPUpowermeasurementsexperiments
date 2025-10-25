@@ -49,3 +49,16 @@ def main():
 if __name__ == "__main__":
     # Requires psutil: pip install psutil
     main()
+
+
+
+
+    '''''
+    allocated = [bytearray(block_size) for _ in range(blocks)]
+Optionally, to ensure pages are touched (not just reserved):
+
+python
+Copier le code
+for b in allocated:
+    b[:] = b'\x00' * block_size
+    '''
